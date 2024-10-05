@@ -1,0 +1,15 @@
+tmp/*
+!/tmp/.keep
+
+logs/*
+!/logs/.keep
+
+# Auto generated fuxxin' annoying folders
+**/.DS_Store
+**/__pycache__
+
+# ruff_cache folder
+.ruff_cache/*
+
+# .env file
+.env
