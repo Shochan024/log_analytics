@@ -15,22 +15,27 @@ This project is a Python-based system for analyzing and extracting data from log
 ```
 log_analytics/
 │
-├── .env                   # Environment configuration
+├── .env                   # Environment configuration file
 ├── .gitignore              # Git ignore settings
-├── logs/                   # Directory where log files are stored
+├── logs/                   # Directory for storing log files
 ├── Pipfile                 # Pipenv configuration for managing dependencies
 ├── Pipfile.lock            # Lock file for dependencies
 ├── tasks.py                # Main task automation script
-├── tmp/                    # Temporary files
-├── view/                   # View layer for visualizing log data (TBD)
+├── tmp/                    # Directory for temporary files
+├── view/                   # View layer for visualizing log data
+│   ├── base_view.py        # Base class for handling views (TBD)
+│   ├── log_view.py         # Class for rendering log data (TBD)
+│   └── metrics_view.py     # Class for rendering metrics visualizations (TBD)
 ├── .python-version         # Python version file for the project
-└── extractor/              # Main extractor module
-    ├── log_file_base.py    # Base class for log file processing
-    ├── rails/              # Specialized extractor for Rails logs
-    │   ├── controller.py   # Extracts controller-related data
-    │   ├── model.py        # Extracts model-related data
-    │   ├── metrics.py      # Extracts metrics from logs
-    └── __init__.py         # Module initialization
+├── extractor/              # Main extractor module
+│   ├── log_file_base.py    # Base class for log file processing
+│   ├── rails/              # Specialized extractor for Rails logs
+│   │   ├── controller.py   # Extracts controller-related data
+│   │   ├── model.py        # Extracts model-related data
+│   │   ├── metrics.py      # Extracts metrics from logs
+│   └── __init__.py         # Module initialization
+└── README.md               # Project documentation
+
 
 ```
 
@@ -88,7 +93,7 @@ This command exports Rails log data, filtering logs by the specified environment
 
 **Usage**:
 ```bash
-pipenv run invoke export_rails_log_data --data-folder=<data_folder> --rails-env=<rails_env>
+pipenv run invoke export-rails-log-data --data-folder=<data_folder> --rails-env=<rails_env>
 ```
 
 **Arguments**:
@@ -105,7 +110,7 @@ This command generates a system load graph based on Rails logs.
 
 **Usage**:
 ```bash
-pipenv run invoke export_rails_system_load_graph --data-folder=<data_folder>
+pipenv run invoke export-rails-system-load-graph --data-folder=<data_folder>
 ```
 
 **Arguments**:
@@ -121,7 +126,7 @@ This command exports basic statistics of Rails metrics.
 
 **Usage**:
 ```bash
-pipenv run invoke export_rails_metrics_statistics --data-folder=<data_folder>
+pipenv run invoke export-rails-metrics-statistics --data-folder=<data_folder> --group-pids=<group_pid_array> --file_name=<output_file_name>
 ```
 
 **Arguments**:
